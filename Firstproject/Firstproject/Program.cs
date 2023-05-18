@@ -6,6 +6,7 @@ public class Program
     private static void Main(string[] args)
     {
         //opn chrome user
+        //git commit test
         IWebDriver driver = new ChromeDriver();
         //launch turnup portal
         driver.Navigate().GoToUrl(" http://horse.industryconnect.io/Account/Login?ReturnUrl=%2f");

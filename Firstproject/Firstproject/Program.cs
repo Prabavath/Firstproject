@@ -64,7 +64,7 @@ public class Program
         Thread.Sleep(2000);
         //Check if record is present in the table
         IWebElement Newcode = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[3]/table/tbody/tr[6]/td[1]"));
-        if (Newcode.Text ==  "May")
+        if (Newcode.Text == "May")
         {
             Console.WriteLine("Newrecord has been created");
         }
@@ -113,20 +113,6 @@ public class Program
         gotoLastPageButton.Click();
         Thread.Sleep(2000);
         Console.WriteLine("Record has been deleted");
-       
-      
-
-
-
-
-
-
-
-
-
-
-
-
     }
 
 

@@ -130,7 +130,7 @@ namespace Firstproject.Pages
         {
             //goto lastpage  
             IWebElement gotoLastPageButton = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[4]/a[4]/span"));
-            gotoLastPageButton.Click();
+            gotoLastPageButton.Click();                                 
             Thread.Sleep(2000);
 
             //Click lastpage Delete button

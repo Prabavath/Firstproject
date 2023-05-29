@@ -12,6 +12,7 @@ using NUnit.Framework;
 namespace Firstproject.Tests
 {
     [TestFixture]
+    [Parallelizable]
 
     public class TM_Test : CommonDriver
     {

@@ -15,54 +15,36 @@ namespace Firstproject.Tests
     [Parallelizable]
 
     public class TM_Test : CommonDriver
-    {
-        [SetUp]
-
-        public void SetUpActions()
-        {
-            //open chrome browser
-            driver = new ChromeDriver();
-
-            //LoginPage Object initialization and calling method
-            LoginPage loginPageObj = new LoginPage();
-            loginPageObj.LoginSteps(driver);
-
-            //HomePage Object initialization and calling method
-            HomePage homePageObj = new HomePage();
-            homePageObj.GoToTMPage(driver);
-        }
-       
+    {   //Homepage and TMpage object initialization
+        HomePage homePageObj = new HomePage();
+        TMpage tmPageObj = new TMpage();
+     
+        
         [Test, Order(1)]
         public void CreateTime_Test()
         {
-            //TMPage Object initialization and calling method
-            TMpage tmPageObj = new TMpage();
+            //CreateTM record calling method
+            homePageObj.GoToTMPage(driver); 
             tmPageObj.CreateTime(driver);
         }
 
         [Test, Order(2)]
         public void EditTM_Test()
         {
-            //EditTM Record
-            TMpage tmPageObj = new TMpage();
+            //EditTM record calling method
+            homePageObj.GoToTMPage(driver);
             tmPageObj.EditTM(driver);
         }
 
         [Test, Order(3)]
         public void DeleteTM_Test()
         {
-            //DeleteTM Record
-            TMpage tmPageObj = new TMpage();
+            //DeleteTM record calling method
+            homePageObj.GoToTMPage(driver);
             tmPageObj.DeleteTM(driver);
 
         }
 
-        [TearDown]
-        public void CloseTestRun()
-        {
-            driver.Quit();
-        }
-
-         
+               
     }
 }

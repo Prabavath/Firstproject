@@ -28,7 +28,7 @@ namespace Firstproject.Tests
 
             //Homepage initialization and calling method
             HomePage homePageObj = new HomePage();
-            homePageObj.GoToTMPage(driver);
+           homePageObj.GoToEmployeePage(driver);
 
         }
 

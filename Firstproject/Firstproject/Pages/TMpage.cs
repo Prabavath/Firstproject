@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Firstproject.Pages
 {
-    public class TMpage
+    public class TMpage 
     {
         public void CreateTime(IWebDriver driver)
         {
@@ -18,15 +18,15 @@ namespace Firstproject.Pages
             //Click on create new button
             IWebElement createNewButton = driver.FindElement(By.XPath("//*[@id=\"container\"]/p/a"));
             createNewButton.Click();
-            Thread.Sleep(2000);
-
-            //Select time from dropdown list
+          
+            //Select time from typecode dropdown
             IWebElement typeCodedropdown = driver.FindElement(By.XPath("//*[@id=\"TimeMaterialEditForm\"]/div/div[1]/div/span[1]/span/span[2]/span"));
             typeCodedropdown.Click();
+            Thread.Sleep(1000); 
 
             IWebElement timeOption = driver.FindElement(By.XPath("//*[@id=\"TypeCode_listbox\"]/li[2]"));
             timeOption.Click();
-
+           
             //Input Code
             IWebElement codeTextbox = driver.FindElement(By.Id("Code"));
             codeTextbox.SendKeys("May");
@@ -45,7 +45,7 @@ namespace Firstproject.Pages
             saveButton.Click();
             Thread.Sleep(3000);
 
-            Wait.WaitToBeClickable(driver, "XPath", "//*[@id=\"tmsGrid\"]/div[4]/a[4]/span", 10);
+            // Wait.WaitToBeClickable(driver, "XPath", "//*[@id=\"tmsGrid\"]/div[4]/a[4]/span", 10);
 
             //Check if new time record has been created successfully
 
@@ -75,7 +75,8 @@ namespace Firstproject.Pages
             Thread.Sleep(2000);
             IWebElement gotolastPageButton = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[4]/a[4]/span"));
             gotolastPageButton.Click();
-            
+
+            Thread.Sleep(3000);
 
             //Check if last record present in the table                  
             IWebElement lastElementCode = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[3]/table/tbody/tr[last()]/td[1]"));
@@ -123,7 +124,15 @@ namespace Firstproject.Pages
             saveButton.Click();
             Thread.Sleep(2000);
 
-          
+            //chaeck if timerecord has been edited
+            IWebElement gotoLastPageButton = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[4]/a[4]/span"));
+            gotoLastPageButton.Click();
+            Thread.Sleep(2000);
+
+            //find if record present on the page
+            IWebElement editedCode = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[3]/table/tbody/tr[last()]/td[1]"));
+            Assert.That(editedCode.Text == "May22new", "Actual code and expected code not match");
+
         }
 
         public void DeleteTM(IWebDriver driver)
@@ -142,8 +151,8 @@ namespace Firstproject.Pages
             Thread.Sleep(2000);
 
             //Check if lastrecord deleted
-            IWebElement lastRecordCode = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[3]/table/tbody/tr[last()]/td[1]"));
-            Assert.That(lastRecordCode.Text != "May23new", "Record has not been deleted");
+            IWebElement editedCode = driver.FindElement(By.XPath("//*[@id=\"tmsGrid\"]/div[3]/table/tbody/tr[last()]/td[1]"));
+            Assert.That(editedCode.Text != "May23new", "Record has not been deleted");
 
 
 

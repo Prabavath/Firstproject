@@ -31,10 +31,8 @@ namespace Firstproject.Tests
             HomePage homePageObj = new HomePage();
             homePageObj.GoToTMPage(driver);
         }
-
+       
         [Test, Order(1)]
-        
-
         public void CreateTime_Test()
         {
             //TMPage Object initialization and calling method
@@ -43,7 +41,6 @@ namespace Firstproject.Tests
         }
 
         [Test, Order(2)]
-
         public void EditTM_Test()
         {
             //EditTM Record
@@ -52,7 +49,6 @@ namespace Firstproject.Tests
         }
 
         [Test, Order(3)]
-
         public void DeleteTM_Test()
         {
             //DeleteTM Record
@@ -62,7 +58,6 @@ namespace Firstproject.Tests
         }
 
         [TearDown]
-
         public void CloseTestRun()
         {
             driver.Quit();

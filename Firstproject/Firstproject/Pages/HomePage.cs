@@ -30,12 +30,14 @@ namespace Firstproject.Pages
 
             IWebElement administrationTab = driver.FindElement(By.XPath("/html/body/div[3]/div/div/ul/li[5]/a"));
             administrationTab.Click();
+            Thread.Sleep(2000);
 
             Wait.WaitToExist(driver, "XPath", "/html/body/div[3]/div/div/ul/li[5]/ul/li[3]/a", 7);
 
 
-            IWebElement employeeOPtion = driver.FindElement(By.XPath("/html/body/div[3]/div/div/ul/li[5]/ul/li[2]/a"));
-            employeeOPtion.Click();
+            // IWebElement employeesOPtion = driver.FindElement(By.XPath("/html/body/div[3]/div/div/ul/li[5]/ul/li[2]/a"));
+            IWebElement employeesTab = driver.FindElement(By.XPath("//a[normalize-space()='Employees']"));
+            employeesTab.Click();
         }
     }
 }

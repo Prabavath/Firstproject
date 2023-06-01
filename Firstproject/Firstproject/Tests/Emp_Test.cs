@@ -14,30 +14,17 @@ namespace Firstproject.Tests
     [Parallelizable]
 
     public class Emp_Test : CommonDriver
-    {
-        [SetUp]
-
-        public void setUpactions()
-        {
-            //Open chrome browser
-            driver = new ChromeDriver();
-
-            //Loginpage object initialization and calling method
-            LoginPage loginPageObj = new LoginPage();
-            loginPageObj.LoginSteps(driver);
-
-            //Homepage initialization and calling method
-            HomePage homePageObj = new HomePage();
-           homePageObj.GoToEmployeePage(driver);
-
-        }
-
+    {   
+        //Homepage and employeepage object initialization
+        HomePage homePageObj = new HomePage();
+        EmployeePage employeePageObj = new EmployeePage();
+         
         [Test, Order(1)]
 
         public void CreateEmployee_Test()
         {
-            // createemployee object initialization and calling method
-            EmployeePage employeePageObj = new EmployeePage();
+            // Create employee record calling method
+            homePageObj.GoToEmployeePage(driver);
             employeePageObj.CreateEmp(driver);
 
         }
@@ -46,8 +33,8 @@ namespace Firstproject.Tests
 
         public void EditEmployee_Test()
         {
-            //Editemployee  object initialization and calling method
-            EmployeePage employeePageObj = new EmployeePage();
+            //Edit employee record calling method
+            homePageObj.GoToEmployeePage(driver);
             employeePageObj.EditEmp(driver);
 
         }
@@ -56,16 +43,10 @@ namespace Firstproject.Tests
 
         public void DeleteEmployee_Test()
         {
-            //Delete employee object initialization and calling method
-            EmployeePage employeePageObj = new EmployeePage();
+            //Delete employee record calling method
+            homePageObj.GoToEmployeePage(driver);
             employeePageObj.DeleteEmp(driver);
         }
 
-        [TearDown]
-
-        public void CloseTestRun()
-        {
-            driver.Quit();
-        }
     }
 }

@@ -33,7 +33,7 @@ namespace Firstproject.Tests
         {
             //EditTM record calling method
             homePageObj.GoToTMPage(driver);
-            tmPageObj.EditTM(driver);
+          //  tmPageObj.EditTM(driver);
         }
 
         [Test, Order(3)]
@@ -41,7 +41,7 @@ namespace Firstproject.Tests
         {
             //DeleteTM record calling method
             homePageObj.GoToTMPage(driver);
-            tmPageObj.DeleteTM(driver);
+          //  tmPageObj.DeleteTM(driver);
 
         }
 

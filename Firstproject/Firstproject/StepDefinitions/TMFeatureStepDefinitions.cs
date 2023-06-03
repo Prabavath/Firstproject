@@ -51,5 +51,47 @@ namespace Firstproject.StepDefinitions
             Assert.AreEqual("$100.00",newPrice , "Actual price and expected price do not match");
 
         }
+
+        [When(@"I update '([^']*)','([^']*)' and '([^']*)' on an existing time and material record")]
+        public void WhenIUpdateAndOnAnExistingTimeAndMaterialRecord(string code, string description, string price)
+        {
+            TMpage tmPageObj = new TMpage();
+            tmPageObj.EditTM(driver, code, description, price);
+        }
+
+        [Then(@"The record should be updated '([^']*)','([^']*)' and '([^']*)'")]
+        public void ThenTheRecordShouldBeUpdatedAnd(string code, string description, string price)
+        {
+            TMpage tmPageObj = new TMpage();
+            string editedCode = tmPageObj.GetEditedCode(driver);
+            string editedDescription = tmPageObj.GetEditedDescription(driver);
+            string editedPrice = tmPageObj.GetEditedPrice(driver);
+
+            Assert.AreEqual(code, editedCode, "Actual edited code and expected code do not match");
+            Assert.AreEqual(description, editedDescription, "Actual edited description and expected description do not match");
+            Assert.AreEqual(price, editedPrice, "Actual edited price and expected price do not match");
+        }
+
+        [When(@"I delete '([^']*)','([^']*)' and '([^']*)' on an existing time and material record")]
+        public void WhenIDeleteAndOnAnExistingTimeAndMaterialRecord(string code, string description, string price)
+        {
+            TMpage tmPageObj = new TMpage();
+            tmPageObj.DeleteTM(driver, code, description, price);
+        }
+
+        [Then(@"The record should be deleted '([^']*)','([^']*)' and '([^']*)'")]
+        public void ThenTheRecordShouldBeDeletedAnd(string code, string description, string price)
+        {
+            TMpage tmPageObj = new TMpage();
+            string deletedCode = tmPageObj.GetDeletedCode(driver);
+            string deletedDescription = tmPageObj.GetDeletedDescription(driver);
+            string deletedPrice = tmPageObj.GetDeletedPrice(driver);
+
+            Assert.AreNotEqual(code, deletedCode, "Actual edited code and expected code do not match");
+            Assert.AreNotEqual(description, deletedDescription, "Actual edited description and expected description do not match");
+            Assert.AreNotEqual(price, deletedPrice, "Actual edited price and expected price do not match");
+        }
+
+
     }
 }

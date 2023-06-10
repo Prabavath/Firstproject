@@ -22,7 +22,7 @@
 							"    var jsonData = pm.response.json();\r",
 							"    pm.expect(jsonData.name).to.eql(\"praba\");\r",
 							"    pm.expect(jsonData.job).to.eql(\"analyst\");\r",
-							"    pm.environment.set(\"UserID\", \"Json.Id\");\r",
+							"    pm.environment.set(\"UserID\", jsonData.id);\r",
 							"});\r",
 							""
 						],
@@ -43,13 +43,13 @@
 					}
 				},
 				"url": {
-					"raw": "{{baseUrl}}/api/{{userID}}",
+					"raw": "{{baseUrl}}/api/users",
 					"host": [
 						"{{baseUrl}}"
 					],
 					"path": [
 						"api",
-						"{{userID}}"
+						"users"
 					]
 				}
 			},
